@@ -18,6 +18,9 @@
         <property name="printedLoggerLevel" value="FINE"/>
     </bean>
     
+    <!-- Load the properties file-->
+    <context:property-placeholder location="classpath:sport.properties"/>
+    
     <!--Define the dependency--> 
     <bean id="myFortune" class="com.spring.springdemo.spring.demo.one.HappyFortuneService">
     </bean>
@@ -29,9 +32,13 @@
     </bean>
     
     <bean id="myCricketCoach"
-        class="com.spring.springdemo.spring.demo.one.CricketCoach">
+          class="com.spring.springdemo.spring.demo.one.CricketCoach">
         
         <!--Set up setter injection-->
         <property name="fortuneService" ref="myFortune" />
+        
+        <!--when we want to inject literal value, use "value" instead of "ref"-->
+        <property name="email" value="${foo.email}" />
+        <property name="team" value="${foo.team}" />
     </bean>
 </beans>

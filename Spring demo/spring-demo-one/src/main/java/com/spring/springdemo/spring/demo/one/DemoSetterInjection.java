@@ -24,6 +24,9 @@ public class DemoSetterInjection {
 
         System.out.println(myCoach.getDailyFortune());
 
+        System.out.println("Email address: " + myCoach.getEmail());
+
+        System.out.println("Team: " + myCoach.getTeam());
         //close the context
         context.close();
     }
