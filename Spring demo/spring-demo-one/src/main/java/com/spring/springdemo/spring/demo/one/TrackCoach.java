@@ -14,4 +14,9 @@ public class TrackCoach implements Coach{
     public String getDailyWorkout() {
         return "Spend 2 hour for skill training.";
     }
+
+    @Override
+    public String getDailyFortune() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

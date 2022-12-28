@@ -34,6 +34,7 @@ public class MyApp {
         //Coach.class is the interface that myCoach implement
 
         System.out.println(mySubCoach.getDailyWorkout());
+        System.out.println(mySubCoach.getDailyFortune());
         
         //close the context
         context.close();
