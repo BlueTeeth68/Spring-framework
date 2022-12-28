@@ -19,11 +19,11 @@ public class MyApp {
         //create object
         //we can create any type of coach here because of the interface
         //but it is still hard code and we need to change code when the coach is change
-        Coach myCoach = new TrackCoach();
-
-        System.out.println(myCoach.getDailyWorkout());
-
-        System.out.println("==============================================");
+//        Coach myCoach = new TrackCoach();
+//
+//        System.out.println(myCoach.getDailyWorkout());
+//
+//        System.out.println("==============================================");
 
         //load spring config file
         //create spring container

@@ -23,8 +23,15 @@
     </bean>
     
     <bean id = "myCoach"
-          class = "com.spring.springdemo.spring.demo.one.BaseballCoach">
+          class = "com.spring.springdemo.spring.demo.one.TrackCoach">
         <!--Set up constructor dependency injection-->
         <constructor-arg ref="myFortune" />
+    </bean>
+    
+    <bean id="myCricketCoach"
+        class="com.spring.springdemo.spring.demo.one.CricketCoach">
+        
+        <!--Set up setter injection-->
+        <property name="fortuneService" ref="myFortune" />
     </bean>
 </beans>

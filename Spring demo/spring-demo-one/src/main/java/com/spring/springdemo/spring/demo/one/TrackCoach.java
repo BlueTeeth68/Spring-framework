@@ -8,7 +8,13 @@ package com.spring.springdemo.spring.demo.one;
  *
  * @author MINH TRI
  */
-public class TrackCoach implements Coach{
+public class TrackCoach implements Coach {
+
+    private FortuneService fortuneService;
+
+    public TrackCoach(FortuneService fortuneService) {
+        this.fortuneService = fortuneService;
+    }
 
     @Override
     public String getDailyWorkout() {
@@ -17,6 +23,6 @@ public class TrackCoach implements Coach{
 
     @Override
     public String getDailyFortune() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return "Just Do It: " + fortuneService.getFortune();
     }
 }

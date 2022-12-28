@@ -8,25 +8,22 @@ package com.spring.springdemo.spring.demo.one;
  *
  * @author MINH TRI
  */
-public class BaseballCoach implements Coach {
+public class CricketCoach implements Coach {
 
-    //define private field for dependency
     private FortuneService fortuneService;
 
-    //define constructor for dependency injection
-    public BaseballCoach(FortuneService fortuneService) {
+    public void setFortuneService(FortuneService fortuneService) {
         this.fortuneService = fortuneService;
     }
 
     @Override
     public String getDailyWorkout() {
-        return "Spend 1 hour for doing physical training.";
+        return "Practice cricket 15 minutes.";
     }
 
     @Override
     public String getDailyFortune() {
-        
-        //use my fortune to get fortune service
         return fortuneService.getFortune();
     }
+
 }
