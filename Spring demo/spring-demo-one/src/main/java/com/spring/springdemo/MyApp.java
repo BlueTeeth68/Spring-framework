@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
  */
-package com.spring.springdemo.spring.demo.two;
+package com.spring.springdemo;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -19,20 +19,26 @@ public class MyApp {
         //create object
         //we can create any type of coach here because of the interface
         //but it is still hard code and we need to change code when the coach is change
-        Coach myCoach = new TrackCoach();
-
-        System.out.println(myCoach.getDailyWorkout());
-
-        System.out.println("==============================================");
+//        Coach myCoach = new TrackCoach();
+//
+//        System.out.println(myCoach.getDailyWorkout());
+//
+//        System.out.println("==============================================");
 
         //load spring config file
         //create spring container
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+
         //retrieve bean from container
         Coach mySubCoach = context.getBean("myCoach", Coach.class);
-        
+        //Coach.class is the interface that myCoach implement
+
         System.out.println(mySubCoach.getDailyWorkout());
+        System.out.println(mySubCoach.getDailyFortune());
+        
+        //close the context
+        context.close();
+        
 
     }
 }

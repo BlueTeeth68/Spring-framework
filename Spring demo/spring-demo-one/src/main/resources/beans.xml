@@ -22,17 +22,17 @@
     <context:property-placeholder location="classpath:sport.properties"/>
     
     <!--Define the dependency--> 
-    <bean id="myFortune" class="com.spring.springdemo.spring.demo.one.HappyFortuneService">
+    <bean id="myFortune" class="com.spring.springdemo.HappyFortuneService">
     </bean>
     
     <bean id = "myCoach"
-          class = "com.spring.springdemo.spring.demo.one.TrackCoach">
+          class = "com.spring.springdemo.TrackCoach">
         <!--Set up constructor dependency injection-->
         <constructor-arg ref="myFortune" />
     </bean>
     
     <bean id="myCricketCoach"
-          class="com.spring.springdemo.spring.demo.one.CricketCoach">
+          class="com.spring.springdemo.CricketCoach">
         
         <!--Set up setter injection-->
         <property name="fortuneService" ref="myFortune" />
