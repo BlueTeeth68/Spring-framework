@@ -8,9 +8,7 @@ package com.spring.springdemo;
  *
  * @author MINH TRI
  */
-public interface Coach {
-
-    public String getDailyWorkout();
-
-    public String getDailyFortune();
+public interface FortuneService {
+    
+    public String getFortuneService();
 }
