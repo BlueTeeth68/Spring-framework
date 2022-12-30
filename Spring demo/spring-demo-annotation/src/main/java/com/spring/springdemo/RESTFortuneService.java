@@ -11,12 +11,11 @@ import org.springframework.stereotype.Component;
  * @author MINH TRI
  */
 @Component
-public class RESTFortuneService implements FortuneService{
+public class RESTFortuneService implements FortuneService {
 
     @Override
     public String getFortuneService() {
-       return "You are using REST fortune service"; 
-        
+        return "You are using REST fortune service";
     }
-    
+
 }
