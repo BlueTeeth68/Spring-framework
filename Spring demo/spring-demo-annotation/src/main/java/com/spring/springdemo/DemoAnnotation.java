@@ -10,7 +10,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  *
  * @author MINH TRI
  */
-public class SpringDemoAnnotation {
+public class DemoAnnotation {
 
     public static void main(String[] args) {
 

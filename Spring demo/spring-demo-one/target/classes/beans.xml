@@ -18,15 +18,19 @@
         <property name="printedLoggerLevel" value="FINE"/>
     </bean>
     
-    <!-- Load the properties file-->
-    <context:property-placeholder location="classpath:sport.properties"/>
-    
     <!--Define the dependency--> 
     <bean id="myFortune" class="com.spring.springdemo.HappyFortuneService">
     </bean>
     
     <bean id = "myCoach"
           class = "com.spring.springdemo.TrackCoach">
+        <!--Set up constructor dependency injection-->
+        <constructor-arg ref="myFortune" />
+    </bean>
+    
+    <bean id = "myCoach2"
+          class = "com.spring.springdemo.BaseballCoach"
+          scope = "prototype"> 
         <!--Set up constructor dependency injection-->
         <constructor-arg ref="myFortune" />
     </bean>
@@ -41,4 +45,7 @@
         <property name="email" value="${foo.email}" />
         <property name="team" value="${foo.team}" />
     </bean>
+    
+    <!-- Load the properties file-->
+    <context:property-placeholder location="classpath:sport.properties"/>
 </beans>
