@@ -21,6 +21,8 @@ public class DemoInjectPropertiesFile {
         System.out.println(coach.getDailyFortune());
         System.out.println("Email: " + coach.getEmail());
         System.out.println("Name: " + coach.getName());
+        
+        context.close();
 
     }
 }
