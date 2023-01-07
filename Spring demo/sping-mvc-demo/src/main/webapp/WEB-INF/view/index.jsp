@@ -14,5 +14,7 @@
     <body>
         <h1>Hello World!</h1>
         <a href="hello/showForm" title="Go to hello form page" target="_blank">Go to hello form page</a>
+        <br/>
+        <a href="student/showForm" title="Go to hello form page" target="_blank">Go to student form page</a>
     </body>
 </html>
