@@ -8,7 +8,7 @@ public class Customer {
     private String firstName;
 
     //validate annotation in hibernate validator 6.2
-    @NotNull
+    @NotNull(message = "is required")
     @Size(min = 1, message = "is required")
     private String lastName;
 
