@@ -1,10 +1,6 @@
-<%-- 
-    Document   : student-confirmation
-    Created on : Jan 6, 2023, 11:01:38 PM
-    Author     : MINH TRI
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,5 +13,14 @@
         The student is confirm: ${student.firstName} ${student.lastName}
         <br/><br/>
         The student's country: ${student.country}
+        <br/><br/>
+        Favorite Language: ${student.favoriteLanguage}
+        <br/><br/>
+        Operating system: 
+        <ul>
+            <c:forEach var="temp" items="${student.operatingSystems}">
+                <li> ${temp} </li>
+            </c:forEach>
+        </ul>
     </body>
 </html>
