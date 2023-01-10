@@ -18,7 +18,7 @@ public class HelloWorldController {
 
     //need a controller to process the form
 //    @RequestMapping("/processForm")
-//    public String processFrom() {
+//    public String processForm() {
 //        return "helloworld";
 //    }
     //a new controller to read the form data and add data to model
@@ -39,7 +39,7 @@ public class HelloWorldController {
 //
 //        return "helloworld";
 //    }
-    //instead of using request.getParam(), Spring support us to do this with @RequestParam()
+    //instead of using request.getParameter(), Spring support us to do this with @RequestParam()
     @RequestMapping("/processForm")
     public String getCosmicMessage(@RequestParam("studentName") String name, Model model) {
 

@@ -5,13 +5,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Customer Registration Form</title>
-        
+
         <style>
             .error {
                 color: red
             }
         </style>
-        
+
     </head>
     <body>
 
@@ -25,6 +25,21 @@
 
             Last Name (*): <form:input path="lastName" />
             <form:errors path="lastName" class="error" />
+
+            <br /><br />
+
+            Free Passes: <form:input path="freePasses"/>
+            <form:errors path="freePasses" class = "error"/>
+
+            <br /><br />
+
+            Postal Code: <form:input path="postalCode"/>
+            <form:errors path="postalCode" class = "error"/>
+
+            <br /><br />
+
+            Course Code: <form:input path="courseCode"/>
+            <form:errors path="courseCode" class = "error"/>
 
             <br /><br />
 

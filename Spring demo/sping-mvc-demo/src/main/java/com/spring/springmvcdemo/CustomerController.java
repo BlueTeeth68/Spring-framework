@@ -17,8 +17,7 @@ public class CustomerController {
     //add @InitBinder to trim the input strings
     //remove leading and trailing whitespace
     //resolve issue of validation 
-
-    @InitBinder  //it pre-process every String form data
+    @InitBinder  //it is pre-process function of every String form data
     public void initBinder(WebDataBinder theBinder) {
         StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
         //Trim the input strings to null
@@ -33,7 +32,7 @@ public class CustomerController {
         return "customer-form";
     }
 
-    @RequestMapping("processForm")
+    @RequestMapping("/processForm")
     public String processForm(
             @Valid @ModelAttribute("customer") Customer theCustomer,
             BindingResult theResult) {
@@ -42,9 +41,12 @@ public class CustomerController {
         * @Valid tell spring to valid the Customer object
         * Spring store the result of validation in BindingResult object
         * BindingResult must come immediately after the binding object (customer)
-         */
+        */
         //some trick to know the value of variable that sent from client
+        System.out.println("\n\n");
         System.out.println("Last Name: |" + theCustomer.getLastName() + "|");
+        System.out.println("The binding result: " + theResult);
+        System.out.println("\n\n");
 
         if (theResult.hasErrors()) {
             return "customer-form";

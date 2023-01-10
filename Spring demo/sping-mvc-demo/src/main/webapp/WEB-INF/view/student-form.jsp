@@ -10,9 +10,9 @@
         <h1>Hello World!</h1>
         <hr/>
         <form:form action="processForm" modelAttribute="student">
-            First Name: <form:input path="firstName"/>
+            First Name: <form:input path="firstName" placeholder="Enter your first name"/>
             <br/>
-            Last Name: <form:input path="lastName"/>
+            Last Name: <form:input path="lastName" placeholder="Enter your last name"/>
             <br/>
             Country: 
             <form:select path="country">
