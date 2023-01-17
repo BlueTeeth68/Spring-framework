@@ -23,15 +23,15 @@ public class CustomerController {
         //Trim the input strings to null
         theBinder.registerCustomEditor(String.class, stringTrimmerEditor);
     }
-
+    
     @RequestMapping("/showForm")
     public String showCustomerForm(Model model) {
-
+        
         model.addAttribute("customer", new Customer());
-
+        
         return "customer-form";
     }
-
+    
     @RequestMapping("/processForm")
     public String processForm(
             @Valid @ModelAttribute("customer") Customer theCustomer,
@@ -41,13 +41,18 @@ public class CustomerController {
         * @Valid tell spring to valid the Customer object
         * Spring store the result of validation in BindingResult object
         * BindingResult must come immediately after the binding object (customer)
-        */
+         */
         //some trick to know the value of variable that sent from client
         System.out.println("\n\n");
         System.out.println("Last Name: |" + theCustomer.getLastName() + "|");
         System.out.println("The binding result: " + theResult);
         System.out.println("\n\n");
-
+        
+        // Upper case the first 3 letter of the courseCode 
+        String courseCode = theCustomer.getCourseCode();
+        courseCode = courseCode.substring(0, 3).toUpperCase() + courseCode.substring(3);
+        theCustomer.setCourseCode(courseCode);
+        
         if (theResult.hasErrors()) {
             return "customer-form";
         } else {
