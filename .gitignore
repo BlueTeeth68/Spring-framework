@@ -26,3 +26,5 @@ hs_err_pid*
 /Spring demo/spring-mvc-demo/target/
 /Spring demo/sping-mvc-demo/target/
 /Spring demo/hibernate-tutorial/target/
+/Spring demo/hb-01-one-to-one-uni/target/
+/Spring demo/hb-01-one-to-one-bi/target/

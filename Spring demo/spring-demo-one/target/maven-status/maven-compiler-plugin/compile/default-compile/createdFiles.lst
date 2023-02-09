@@ -1,7 +1,9 @@
-com\spring\springdemo\spring\demo\one\BaseballCoach.class
-com\spring\springdemo\spring\demo\one\MyApp.class
-com\spring\springdemo\spring\demo\one\HappyFortuneService.class
-com\spring\springdemo\spring\demo\one\FortuneService.class
-com\spring\springdemo\spring\demo\one\Coach.class
+com\spring\springdemo\FortuneService.class
+com\spring\springdemo\HappyFortuneService.class
+com\spring\springdemo\CricketCoach.class
+com\spring\springdemo\BaseballCoach.class
+com\spring\springdemo\Coach.class
+com\spring\springdemo\TrackCoach.class
 logger\MyLoggerConfig.class
-com\spring\springdemo\spring\demo\one\TrackCoach.class
+com\spring\springdemo\DemoSetterInjection.class
+com\spring\springdemo\MyApp.class

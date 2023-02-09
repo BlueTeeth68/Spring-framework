@@ -5,7 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class CreateStudentDemo {
+public class ReadStudentDemo {
 
     public static void main(String[] args) {
 
@@ -18,23 +18,38 @@ public class CreateStudentDemo {
         Session session = factory.getCurrentSession();
         
         try {
-            //Create student entity
+            //Create student object
             System.out.println("Creating the student object....");
             Student tmpStudent = new Student("Dao", "Minh Tri", "abc@gmail.com");
             
-            //Start transaction
+            //READ THE STUDENT FROM DATABASE
+            
+            System.out.println("\nRead the student form database");
             System.out.println("Starting the transaction....");
+            session = factory.getCurrentSession();
+            
             session.beginTransaction();
             
-            //Svae student object
-            System.out.println("Saving the transaction");
-            session.save(tmpStudent);
+            //get Student
             
-            //Commit the transaction
-            session.getTransaction().commit(); 
+            System.out.println("Getting the student from database....");
+            
+            //get student from database by ID
+            Student myStudent = session.get(Student.class, tmpStudent.getId());
+            
+            //print out student information
+            System.out.println("Printing out student's information....");
+            System.out.println("The student information: " + myStudent.toString());
+            
+            //commit the transaction
+            System.out.println("Commiting the transaction....");
+            session.getTransaction().commit();
+            
             System.out.println("Done!");
         } finally {
             factory.close();
         }
     }
 }
+
+// Note that the Student class must have default constructor 
