@@ -1,0 +1,9 @@
+https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/#What-Is-A-Token
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The access token then acts as a credential artifact to access protected resources rather than an identification artifact. Malicious users could theoretically compromise a system and steal access tokens, which in turn they could use to access protected resources by presenting those tokens directly to the server.
+
+As such, it's critical to have security strategies that minimize the risk of compromising access tokens. One mitigation method is to create access tokens that have a short lifespan: they are only valid for a short time defined in terms of hours or days.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+an ID token is an artifact that client applications can use to consume the identity of a user. For example, the ID token can contain information about the name, email, and profile picture of a user. As such, client applications can use the ID token to build a user profile to personalize the user experience.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
