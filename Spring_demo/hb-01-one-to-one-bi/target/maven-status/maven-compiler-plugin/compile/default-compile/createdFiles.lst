@@ -1,0 +1,6 @@
+com\spring\hibernate\tutorial\DeleteDemo.class
+com\spring\jdbc\TestDatabaseConnection.class
+com\spring\hibernate\tutorial\CreateDemo.class
+com\spring\hibernate\tutorial\entity\Instructor.class
+com\spring\hibernate\tutorial\entity\InstructorDetail.class
+com\spring\hibernate\tutorial\entity\Student.class

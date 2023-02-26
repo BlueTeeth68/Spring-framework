@@ -1,0 +1,9 @@
+com\spring\hibernate\tutorial\HibernateTutorial.class
+com\spring\hibernate\tutorial\ReadStudentDemo.class
+com\spring\hibernate\tutorial\DeleteStudentDemo.class
+com\spring\hibernate\tutorial\PrimatyKeyDemo.class
+com\spring\hibernate\tutorial\UpdateStudentDemo.class
+com\spring\hibernate\tutorial\TestDatabaseConnection.class
+com\spring\hibernate\tutorial\CreateStudentDemo.class
+com\spring\hibernate\tutorial\QueryStudentDemo.class
+com\spring\hibernate\tutorial\entity\Student.class
