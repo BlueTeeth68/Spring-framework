@@ -4,13 +4,11 @@ import com.example.springjpa.domain.Role;
 import com.example.springjpa.domain.RoleName;
 import com.example.springjpa.domain.User;
 import com.example.springjpa.service.UserService;
+import com.example.springjpa.util.APIUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -41,6 +39,18 @@ public class TestAPI {
     @GetMapping("/role")
     public ResponseEntity<List<Role>> getAllUserByRole() {
         List<Role> result = userService.getAllRole();
+        return ResponseEntity.ok(result);
+    }
+
+    @GetMapping("/user")
+    public ResponseEntity<List<User>> getAllUserPaginate(
+            @RequestParam String limit,
+            @RequestParam String page
+    ) {
+        int limitNum = APIUtil.convertStringToInt(limit);
+        int pageNum = APIUtil.convertStringToInt(page);
+
+        List<User> result = userService.getUserByPaginate(limitNum, pageNum);
         return ResponseEntity.ok(result);
     }
 

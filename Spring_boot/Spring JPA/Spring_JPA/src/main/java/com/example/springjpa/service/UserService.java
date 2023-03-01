@@ -63,5 +63,11 @@ public class UserService {
         return roleRepository.findAll().stream().toList();
     }
 
+    public List<User> getUserByPaginate(int limit, int page) {
+        int offset = limit * (page - 1);
+        List<User> result = userRepository.findALimitUserSortById(limit, offset);
+        return result;
+    }
+
 
 }
