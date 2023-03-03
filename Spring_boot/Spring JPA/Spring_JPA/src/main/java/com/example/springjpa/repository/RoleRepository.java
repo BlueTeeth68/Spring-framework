@@ -5,9 +5,11 @@ import com.example.springjpa.domain.RoleName;
 import com.example.springjpa.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface RoleRepository extends JpaRepository<Role, Long> {
 
     Role findByRoleName(RoleName roleName);

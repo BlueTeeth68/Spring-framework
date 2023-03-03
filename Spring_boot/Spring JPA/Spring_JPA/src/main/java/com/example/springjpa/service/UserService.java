@@ -69,5 +69,14 @@ public class UserService {
         return result;
     }
 
+    //Testing findByUsernameLike in JPA repository
+    public List<User> getUserByUsernameLike(String username) {
+        return userRepository.findByUsernameLike(username);
+    }
+
+    //Testing findByUsernameStartingWith
+    public List<User> getUserByUsernameStartingWith(String username) {
+        return userRepository.findByUsernameStartingWith(username);
+    }
 
 }
