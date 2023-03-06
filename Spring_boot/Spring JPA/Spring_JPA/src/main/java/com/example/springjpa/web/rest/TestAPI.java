@@ -1,9 +1,7 @@
 package com.example.springjpa.web.rest;
 
-import com.example.springjpa.domain.Post;
-import com.example.springjpa.domain.Role;
-import com.example.springjpa.domain.RoleName;
-import com.example.springjpa.domain.User;
+import com.example.springjpa.domain.*;
+import com.example.springjpa.service.KeywordService;
 import com.example.springjpa.service.PostService;
 import com.example.springjpa.service.UserService;
 import com.example.springjpa.util.APIUtil;
@@ -25,6 +23,8 @@ public class TestAPI {
     private final UserService userService;
 
     private final PostService postService;
+
+    private final KeywordService keywordService;
 
     @GetMapping("/list")
     public ResponseEntity<List<User>> getAllUser() {
@@ -92,6 +92,47 @@ public class TestAPI {
         post.setUser(user);
         Post result = postService.createdAPost(post);
         return new ResponseEntity<>(result, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/keyword")
+    public ResponseEntity<KeyWord> createKeyWord(
+            @Valid @RequestBody KeyWord keyword
+    ) {
+
+        KeyWord result = keywordService.createKeyword(keyword);
+        return new ResponseEntity<>(result, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/keyword")
+    public ResponseEntity<KeyWord> getKeywordById(
+            @RequestParam String name,
+            @RequestParam String postId
+    ) {
+
+        Long postIdNum;
+        try {
+            postIdNum = Long.parseLong(postId);
+        } catch (Exception e) {
+            throw new RuntimeException("Bad request");
+        }
+        KeywordId keywordId = new KeywordId(name, postIdNum);
+        KeyWord result = keywordService.findById(keywordId);
+        return new ResponseEntity<>(result, HttpStatus.FOUND);
+    }
+
+    @GetMapping("/keyword/postId")
+    public ResponseEntity<List<KeyWord>> getKeywordByPostId(
+            @RequestParam String postId
+    ) {
+        Long postIdNum;
+
+        try {
+            postIdNum = Long.parseLong(postId);
+        } catch (Exception e) {
+            throw new RuntimeException("Bad request");
+        }
+        List<KeyWord> result = keywordService.findByPostIdSortedByName(postIdNum);
+        return new ResponseEntity<>(result, HttpStatus.FOUND);
     }
 
 }
