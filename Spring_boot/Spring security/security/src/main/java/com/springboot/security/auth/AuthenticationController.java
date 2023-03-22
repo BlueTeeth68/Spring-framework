@@ -1,5 +1,7 @@
 package com.springboot.security.auth;
 
+import com.springboot.security.domain.User;
+import com.springboot.security.repository.UserRepository;
 import com.springboot.security.service.AuthenticationService;
 import com.springboot.security.service.JWTService;
 import com.springboot.security.vm.LoginTokenVM;
@@ -18,6 +20,8 @@ public class AuthenticationController {
 
     private final JWTService jwtService;
 
+    private final UserRepository userRepository;
+
     @PostMapping("/register")
     public ResponseEntity<LoginTokenVM> register(
             @RequestBody RegisterRequest request
@@ -33,11 +37,19 @@ public class AuthenticationController {
     }
 
     @PostMapping("/refresh")
-    public ResponseEntity<String> getAccessTokenByRefreshToken(
+    public ResponseEntity<LoginTokenVM> getAccessTokenByRefreshToken(
             @RequestHeader("refresh_token") String refreshToken
     ) {
         if (jwtService.isRefreshTokenValid(refreshToken)) {
-            return new ResponseEntity<>(jwtService.generateAccessTokenFromRefreshToken(refreshToken), HttpStatus.OK);
+            String userName = jwtService.extractRefreshUserName(refreshToken);
+            User user = userRepository.findByUserName(userName).orElse(null);
+            String newAccessToken = jwtService.generateAccessToken(userName);
+            String newRefreshToken = jwtService.generateRefreshToken(userName);
+            LoginTokenVM result = new LoginTokenVM();
+            result.setUser(user);
+            result.setAccessToken(newAccessToken);
+            result.setRefreshToken(newRefreshToken);
+            return new ResponseEntity<>(result, HttpStatus.OK);
         } else {
             throw new BadCredentialsException("refresh token is invalid or expired.");
         }
