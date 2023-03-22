@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/auth")
 @RequiredArgsConstructor
-@SuppressWarnings("unused")
 public class AuthenticationController {
 
     private final AuthenticationService authenticationService;
@@ -23,9 +22,6 @@ public class AuthenticationController {
     public ResponseEntity<LoginTokenVM> register(
             @RequestBody RegisterRequest request
     ) {
-//        HttpHeaders headers = new HttpHeaders();
-//        headers.add("token", token.getToken());
-//        return ResponseEntity.status(HttpStatus.OK).headers(headers).body(token);
         return new ResponseEntity<>(authenticationService.register(request), HttpStatus.OK);
     }
 
@@ -33,9 +29,6 @@ public class AuthenticationController {
     public ResponseEntity<LoginTokenVM> register(
             @RequestBody AuthenticationRequest request
     ) {
-//        HttpHeaders headers = new HttpHeaders();
-//        headers.add("token", token.getToken());
-//        return ResponseEntity.status(HttpStatus.OK).headers(headers).body(token);
         return new ResponseEntity<>(authenticationService.authenticate(request), HttpStatus.OK);
     }
 
