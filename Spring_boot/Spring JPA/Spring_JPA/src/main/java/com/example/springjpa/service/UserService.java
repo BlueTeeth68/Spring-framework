@@ -79,4 +79,8 @@ public class UserService {
         return userRepository.findByUsernameStartingWith(username);
     }
 
+    public void deleteUser(Long id) {
+        userRepository.deleteById(id);
+    }
+
 }

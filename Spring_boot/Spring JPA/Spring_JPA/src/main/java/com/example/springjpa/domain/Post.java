@@ -1,7 +1,9 @@
 package com.example.springjpa.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.annotation.Reference;
 
 import java.time.Instant;
 
@@ -25,6 +27,8 @@ public class Post {
     private Instant createdDate = Instant.now();
 
     @ManyToOne
-    @JoinColumn(name = "created_by", updatable = false)
+    @JoinColumn(name = "created_by")
+    @JsonIgnoreProperties(value = "posts")
+
     private User user;
 }

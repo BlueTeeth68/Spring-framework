@@ -1,8 +1,11 @@
 package com.example.springjpa.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.util.HashSet;
@@ -42,4 +45,16 @@ public class User {
     @JsonIgnoreProperties(value = "users", allowSetters = true)
     private Set<Role> roles = new HashSet<>();
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST})
+    private final Set<Post> posts = new HashSet<>();
+
+    @PreRemove
+    void removeForeignKey() {
+        posts.forEach(
+                post -> {
+                    post.setUser(null);
+                }
+        );
+    }
 }

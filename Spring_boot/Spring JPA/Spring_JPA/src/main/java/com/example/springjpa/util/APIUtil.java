@@ -12,4 +12,14 @@ public class APIUtil {
         return result;
     }
 
+    public static Long convertStringToLong(String input) {
+        Long result = -1L;
+        try {
+            result = Long.parseLong(input);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
 }

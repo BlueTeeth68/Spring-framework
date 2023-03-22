@@ -94,6 +94,12 @@ public class TestAPI {
         return new ResponseEntity<>(result, HttpStatus.CREATED);
     }
 
+    @GetMapping("/post")
+    public ResponseEntity<List<Post>> getAllPost() {
+        List<Post> posts = postService.getListPost();
+        return new ResponseEntity<>(posts, HttpStatus.OK);
+    }
+
     @PostMapping("/keyword")
     public ResponseEntity<KeyWord> createKeyWord(
             @Valid @RequestBody KeyWord keyword
@@ -134,5 +140,15 @@ public class TestAPI {
         List<KeyWord> result = keywordService.findByPostIdSortedByName(postIdNum);
         return new ResponseEntity<>(result, HttpStatus.FOUND);
     }
+
+    @DeleteMapping("/user")
+    public ResponseEntity<?> deleteUser(
+            @RequestParam String id
+    ) {
+        Long idNum = APIUtil.convertStringToLong(id);
+        userService.deleteUser(idNum);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 
 }

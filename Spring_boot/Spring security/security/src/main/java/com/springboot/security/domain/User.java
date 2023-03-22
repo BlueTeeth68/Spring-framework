@@ -1,5 +1,7 @@
 package com.springboot.security.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.springboot.security.config.Role;
 import jakarta.persistence.*;
 import lombok.*;
@@ -28,6 +30,7 @@ public class User implements UserDetails {
     @Column
     private String email;
     @Column
+    @JsonIgnore
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
